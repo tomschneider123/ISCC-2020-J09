@@ -22,9 +22,29 @@ elseif ($_GET['page'] == "3")
 }
 elseif ($_GET['page'] == "connexion")
 {
+    include ('connexion.php');
     echo "<h1> Connexion </h1>"
 }
 }
+
+
+
+if (isset($_COOKIE['id']))
+{
+    echo "Login :" . $_SESSION['id'];
+}
+else
+{
+    if(isset($_COOKIE['id']))
+    {
+        $_SESSION['id'] = $_COOKIE['id'];
+    }
+    else 
+    {
+        <a href="connexion.php">Connexion</a>
+    }
+}
+
 ?>
 </body>
 </head>

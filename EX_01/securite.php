@@ -3,16 +3,21 @@
 <?php
 
 session_start();
-
-  if($var == '2020'):
-    $_SESSION["id"]=$login;
-    <a href="mini-site-routing.php">Accueil</a>
-  else:
-      if($var == 'Something Else'):
-      echo "Mauvais couple identifiant / mot de passe."
+if (isset($_POST['mot de passe']))
+{
+    if ($_POST['mot de passe'] == "2020")
+    {
+      $_SESSION["id"]=$_POST['nom d_utilisateur'];
+      setcookie("id", $_SESSION["id"]);
       <a href="connexion.php">Connexion</a>
-      endif;
-  endif;
+      exit();
+    }
+    else
+    {
+      echo "Mauvais couple identifiant / mot de passe."
+    }
+
+}
 
 ?>
 
